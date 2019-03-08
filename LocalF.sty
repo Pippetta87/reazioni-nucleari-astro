@@ -1,0 +1,60 @@
+\ProvidesPackage{LocalF}
+
+\newenvironment{definition}[1]{\textbf{Def.: #1.}\index{#1}}{$\mathfrak{Use\ it.}$}
+\newenvironment{usefull}[1]{\colorbox{yellow}{\textbf{NB:#1.}}\index{#1}}{$\mathfrak{Remember\ it.}$}
+
+
+\makeatletter       %% Calclength dati parametri 2 coordinate restituisce nel terzo parametro la distanza \calcLength(O,geo){radius};
+
+\def\calcLength(#1,#2)#3{%
+\pgfpointdiff{\pgfpointanchor{#1}{center}}%
+             {\pgfpointanchor{#2}{center}}%
+\pgf@xa=\pgf@x%
+\pgf@ya=\pgf@y%
+\FPeval\@temp@a{\pgfmath@tonumber{\pgf@xa}}%
+\FPeval\@temp@b{\pgfmath@tonumber{\pgf@ya}}%
+\FPeval\@temp@sum{(\@temp@a*\@temp@a+\@temp@b*\@temp@b)}%
+\FProot{\FPMathLen}{\@temp@sum}{2}%
+\FPround\FPMathLen\FPMathLen5\relax
+\global\expandafter\edef\csname #3\endcsname{\FPMathLen}
+}
+\makeatother
+
+\makeatletter       %% Redeclaremathoperator
+\newcommand\RedeclareMathOperator{%
+  \@ifstar{\def\rmo@s{m}\rmo@redeclare}{\def\rmo@s{o}\rmo@redeclare}%
+}
+% this is taken from \renew@command
+\newcommand\rmo@redeclare[2]{%
+  \begingroup \escapechar\m@ne\xdef\@gtempa{{\string#1}}\endgroup
+  \expandafter\@ifundefined\@gtempa
+     {\@latex@error{\noexpand#1undefined}\@ehc}%
+     \relax
+  \expandafter\rmo@declmathop\rmo@s{#1}{#2}}
+% This is just \@declmathop without \@ifdefinable
+\newcommand\rmo@declmathop[3]{%
+  \DeclareRobustCommand{#2}{\qopname\newmcodes@#1{#3}}%
+}
+\@onlypreamble\RedeclareMathOperator
+\makeatother
+
+\newcommand{\debh}{Debye-H\:uckel}
+
+\newenvironment{exercise}[1]{\textbf{Oh: #1 !}\index{#1 (ex)}}{$\mathfrak{Really?}$}
+
+\newcommand{\fmono}{F_{\lambda}}
+
+\newcommand{\insieme}[1]{\{#1\}}
+\newcommand{\intensitynu}{I_{\nu}}
+
+\newcommand{\lmono}{L_{\lambda}}
+
+
+\newcommand{\vrho}{V_{\rho}}
+
+\newcommand{\blacknu}{B_{\nu}}
+\newcommand{\fluxnu}{F_{\nu}}
+
+\newcommand{\opacitynu}{\kappa_{\nu}}
+
+\newcommand{\planckf}[1]{B_{#1}}

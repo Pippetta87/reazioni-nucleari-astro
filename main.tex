@@ -1,0 +1,91 @@
+\documentclass[oneside,12pt,fleqn]{memoir}
+
+\usepackage{makeidx}
+\usepackage[columns=1]{idxlayout}
+%\usepackage[utf8]{inputenc}
+\pagestyle{plain}
+\binoppenalty2000 \relpenalty2000
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% importa pacchetti
+\usepackage{usepkg}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% fancyhdr
+\usepackage{fancyfoot}
+%%%%%%%%%%%%%%%%%% titletoc, titlesec setting
+\usepackage{titleT}
+%%%%%%%%%%%%%%%%%% setlength
+\usepackage{mylength}
+\linespread{0.5}
+
+%%%%%%%%%%%% Hyperref package
+\usepackage{hyperref}
+\hypersetup{colorlinks,
+linktoc=all,
+linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=black
+}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%Geometry package
+\usepackage{mygeometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni per questo file main
+\usepackage{LocalF}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni generali
+\usepackage{functions}
+%http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
+\usepackage{sources}
+\usepackage{MathOp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{tikz/data}%%import table for tikz pgfplot
+
+
+\makeindex
+\raggedbottom %http://tex.stackexchange.com/questions/102084/annoying-paragraph-spacing-issue-with-memoir 
+
+
+%%%%%%%%%%%%%%%%%% Import mypackages
+%\usepackage{mytitletoc} %% Remeber some problems occurs if you put this after packages
+%\usepackage{packages}   %%
+%\usepackage{mygeometry} %%
+%\usepackage{functions}  %%
+%\usepackage{LocalF} %%
+%\usepackage{MathOp} %%
+%%%%%%%%%%%%%%%%%%% Sources
+%\usepackage{sources}
+%%%%%%%%%%%%
+
+
+
+\author{Pippetta}
+\title{reazioni(nucleari)astro}
+\date{\today}
+%\date{\currenttime}
+
+\makeindex
+\raggedbottom %http://tex.stackexchange.com/questions/102084/annoying-paragraph-spacing-issue-with-memoir
+
+%\csname @addtoreset\endcsname{figure}{chapter}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\addtocontents{toc}{\protect\hypertarget{toc}{}}
+\tableofcontents*
+
+\mainmatter
+
+\part{Modello ed evoluzione stellare.}
+%\input{reactiolution}
+
+\renewcommand{\listfigurename}{Elenco figure}
+
+\renewcommand{\indexname}{Indice}
+
+\listoffigures
+\printindex
+
+
+\end{document}

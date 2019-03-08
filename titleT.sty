@@ -1,0 +1,30 @@
+\ProvidesPackage{titleT}
+
+\usepackage[rightlabels]{titletoc}
+\setcounter{tocdepth}{0}
+
+\usepackage[compact,toctitles]{titlesec}
+
+\titleformat{\part}[block]{\huge\bfseries\centering\vspace*{\fill}}{\thepart}{10pt}{\huge}[\vspace*{\fill}] 
+\titleformat{\chapter}[block]
+{\huge}{\chaptertitlename\ \thechapter:\ }{0pt}{\huge}
+\titleformat{\section}{\LARGE}{}{0pt}{\LARGE}
+\titleformat{\subsection}[display]{\large}{}{0pt}{\large\scshape}[]
+
+\titlespacing*{\part}{0pt}{0pt}{0pt}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+\titlecontents{section}[2.3em]
+{} {\contentslabel{2.3em}} {} {\titlerule*[1pc]{.}\contentspage}
+\titlecontents{subsection}[1em]{\smallskip}%
+        {\thesection.\thecontentslabel\hskip0.8em}%numbered
+        {}%numberless
+        {\enspace\dotfill\contentspage}[\smallskip]%
+        
+\titlecontents{subsubsection}[2.0em]{\smallskip}%
+{\thesection.\thecontentslabel\hskip0.8em}%numbered
+{}%numberless
+{\enspace\dotfill\contentspage}[\smallskip]%
